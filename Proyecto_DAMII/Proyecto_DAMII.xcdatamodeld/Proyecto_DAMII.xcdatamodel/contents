@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23605" systemVersion="24D70" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AsientoCD" representedClassName="AsientoCD" syncable="YES" codeGenerationType="class">
+        <attribute name="fila" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="numero" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ocupado" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="funcion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FuncionCD"/>
+    </entity>
+    <entity name="Compra" representedClassName="Compra" syncable="YES" codeGenerationType="class">
+        <attribute name="butacas" optional="YES" attributeType="String"/>
+        <attribute name="cine" optional="YES" attributeType="String"/>
+        <attribute name="ciudad" optional="YES" attributeType="String"/>
+        <attribute name="fecha" optional="YES" attributeType="String"/>
+        <attribute name="fechaCompra" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="horario" optional="YES" attributeType="String"/>
+        <attribute name="pelicula" optional="YES" attributeType="String"/>
+        <attribute name="totalAsientos" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalFinal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalSnacks" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="usuarioCorreo" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="FuncionCD" representedClassName="FuncionCD" syncable="YES" codeGenerationType="class">
+        <attribute name="cine" optional="YES" attributeType="String"/>
+        <attribute name="ciudad" optional="YES" attributeType="String"/>
+        <attribute name="fecha" optional="YES" attributeType="String"/>
+        <attribute name="horario" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="pelicula" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PeliculaCD"/>
+    </entity>
+    <entity name="Pelicula" representedClassName="Pelicula" syncable="YES" codeGenerationType="class">
+        <attribute name="clasificacion" optional="YES" attributeType="String"/>
+        <attribute name="duracion" optional="YES" attributeType="String"/>
+        <attribute name="horarios" optional="YES" attributeType="Transformable"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imagen" optional="YES" attributeType="Binary"/>
+        <attribute name="sinopsis" optional="YES" attributeType="String"/>
+        <attribute name="titulo" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="PeliculaCD" representedClassName="PeliculaCD" syncable="YES" codeGenerationType="class">
+        <attribute name="clasificacion" optional="YES" attributeType="String"/>
+        <attribute name="duracion" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imagen" optional="YES" attributeType="Binary"/>
+        <attribute name="sinopsis" optional="YES" attributeType="String"/>
+        <attribute name="titulo" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ReservaCD" representedClassName="ReservaCD" syncable="YES" codeGenerationType="class">
+        <attribute name="cine" optional="YES" attributeType="String"/>
+        <attribute name="ciudad" optional="YES" attributeType="String"/>
+        <attribute name="fechaReserva" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="funcionFecha" optional="YES" attributeType="String"/>
+        <attribute name="funcionHorario" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="peliculaTitulo" optional="YES" attributeType="String"/>
+        <attribute name="totalAsientos" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalFinal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalSnacks" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="asientos" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AsientoCD"/>
+        <relationship name="funcion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FuncionCD"/>
+        <relationship name="usuario" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Usuario"/>
+    </entity>
+    <entity name="Snack" representedClassName="Snack" syncable="YES">
+        <attribute name="categoria" optional="YES" attributeType="String"/>
+        <attribute name="descripcion" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imagen" optional="YES" attributeType="Binary"/>
+        <attribute name="nombre" optional="YES" attributeType="String"/>
+        <attribute name="precio" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Usuario" representedClassName="Usuario" syncable="YES" codeGenerationType="class">
+        <attribute name="apellidos" optional="YES" attributeType="String"/>
+        <attribute name="contrasena" optional="YES" attributeType="String"/>
+        <attribute name="correo" optional="YES" attributeType="String"/>
+        <attribute name="dni" optional="YES" attributeType="String"/>
+        <attribute name="fechaNacimiento" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="genero" optional="YES" attributeType="String"/>
+        <attribute name="nombres" optional="YES" attributeType="String"/>
+        <attribute name="telefono" optional="YES" attributeType="String"/>
+    </entity>
+</model>
